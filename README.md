@@ -9,3 +9,6 @@ v1.0:
 -User Settings (Upload Profile Picture, Upload Images for Gallery, Updating User Details<br>
 -Home(Profile Picture, User's Bio, Other Users, Personal Gallery, Google Calendar, Download, Edit and Delete for Gallery, Info)<br>
 -ViewUsers(Displays Other Users Profile Picture, Gallery and Info)
+
+v1.01
+-Added Pagination to gallery for both users and other users
