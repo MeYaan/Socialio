@@ -62,6 +62,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+
+
 ?>
 
 <html>
@@ -178,9 +180,18 @@ if (empty($userGallery)) {
     // Display a message when the gallery is empty
     echo "<div class='w3-container w3-center'><p>No recent works</p></div>";
 } else {
-    echo "<div class='w3-row'>";
+
+    $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+
+    $totalImages = $home->getTotalImagesCount($user_id);
+    
+// Get user gallery for the current page
+    $userGallery = $home->getUserGallery($user_id, $currentPage);
+
+    echo "<div class='w3-row social-profiles2'>";
     foreach ($userGallery as $image) {
-        echo "<div class=' w3-third  w3-container '>";
+        echo "<div class=' w3-third  w3-container'>";
         echo "<img src='../uploads/{$image['image_filename']}' class='w3-round-large gallery-image' onclick=\"openModal('../uploads/{$image['image_filename']}', '{$image['title']}', '{$image['description']}')\">";
 
         echo "</br><span class='like-count'>Likes: {$image['likes']}</span>";
@@ -195,6 +206,30 @@ if (empty($userGallery)) {
         echo "</div>";
     }
 
+    echo "</div>";
+
+    $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+    // Get total images count for the user
+    $totalImages = $home->getTotalImagesCount($user_id);
+    
+    // Get user gallery for the current page
+    $userGallery = $home->getUserGallery($user_id, $currentPage);
+    
+    echo "<div class='w3-row social-profiles2'>";
+    foreach ($userGallery as $image) {
+        echo "<div class=' w3-third  w3-container'>";
+        // Display image as before...
+        echo "</div>";
+    }
+    echo "</div>";
+    
+    // Display pagination links
+    $totalPages = ceil($totalImages / 6); // Assuming 6 images per page
+    echo "<div class='pagination'>";
+    for ($i = 1; $i <= $totalPages; $i++) {
+        echo "<a href='home.php?page=$i'>$i</a> ";
+    }
     echo "</div>";
 }
 ?>

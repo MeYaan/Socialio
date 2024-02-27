@@ -101,13 +101,29 @@ class Home
             ->execute([$bio, $userId]);
     }
 
-    public function getUserGallery($userId)
-    {
-        $stmt = $this->db->prepare("SELECT * FROM gallery WHERE user_id = ?");
-        $stmt->execute([$userId]);
+    public function getTotalImagesCount($userId)
+{
+    $stmt = $this->db->prepare("SELECT COUNT(*) FROM gallery WHERE user_id = ?");
+    $stmt->execute([$userId]);
+    return $stmt->fetchColumn();
+}
 
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
+public function getUserGallery($userId, $page = 1, $perPage = 6)
+{
+    $offset = ($page - 1) * $perPage;
+
+    $stmt = $this->db->prepare("SELECT * FROM gallery WHERE user_id = ? ORDER BY id DESC LIMIT ?, ?");
+    $stmt->bindParam(1, $userId, PDO::PARAM_INT);
+    $stmt->bindParam(2, $offset, PDO::PARAM_INT);
+    $stmt->bindParam(3, $perPage, PDO::PARAM_INT);
+
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+
 
     public function uploadImageToGallery($userId, $image, $title, $description)
     {
@@ -220,5 +236,27 @@ class Home
     $stmt->execute([$newTitle, $newDetails, $userId, $imageId]);
     // Add error handling if needed
 }
+
+public function getViewTotalImagesCount($viewUserId)
+{
+    $stmt = $this->db->prepare("SELECT COUNT(*) FROM gallery WHERE user_id = ?");
+    $stmt->execute([$viewUserId]);
+    return $stmt->fetchColumn();
 }
 
+public function getViewUserGallery($viewUserId, $page = 1, $perPage = 6)
+{
+    $offset = ($page - 1) * $perPage;
+
+    $stmt = $this->db->prepare("SELECT * FROM gallery WHERE user_id = ? ORDER BY id DESC LIMIT ?, ?");
+    $stmt->bindParam(1, $viewUserId, PDO::PARAM_INT);
+    $stmt->bindParam(2, $offset, PDO::PARAM_INT);
+    $stmt->bindParam(3, $perPage, PDO::PARAM_INT);
+
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+}

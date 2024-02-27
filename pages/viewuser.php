@@ -33,7 +33,7 @@ if (isset($_GET['user_id'])) {
     $viewUserLastName = $viewUserInfo['lastname'];
     $viewUserImgFileName = $viewUserInfo['img'];
     $viewUserBio = $viewUserInfo['bio'];
-    $viewUserGallery = $home->getUserGallery($viewUserId);
+    $viewUserGallery = $home->getViewUserGallery($viewUserId);
 } else {
     // Redirect to home if user_id is not provided
     header('Location: home.php');
@@ -87,7 +87,7 @@ if (isset($_POST['likeImage'])) {
     </div>
 
     <!-- User Profile Section -->
-    <div class="w3-row w3-center">
+    <div class="w3-row w3-center ">
         <div class="w3-container w3-center w3-dark-grey">
             <?php
             $profileImageSrc = !empty($viewUserImgFileName) ? "../uploads/$viewUserImgFileName" : "../images/usericon.png";
@@ -113,13 +113,25 @@ if (isset($_POST['likeImage'])) {
         <h4 class="w3-black w3-text-white w3-round-medium">USER GALLERY:</h4>
     </div>
 
-    <div class="w3-row">
+    <div class="w3-row social-profiles2 w3-center">
         <?php
         if (empty($viewUserGallery)) {
             echo "<div class='w3-container w3-center'><p>No images in the gallery</p></div>";
         } else {
+
+            $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+
+            $totalImages = $home->getTotalImagesCount($viewUserId);
+            
+        // Get user gallery for the current page
+            $viewUserGallery = $home->getUserGallery($viewUserId, $currentPage);
+    
+// Get user gallery for the current page
+
+
             foreach ($viewUserGallery as $image) {
-                echo "<div class='w3-third w3-container'>";
+                echo "<div class='w3-third w3-container '>";
                 echo "<img src='../uploads/{$image['image_filename']}' class='w3-round-large gallery-image' onclick=\"openModal('../uploads/{$image['image_filename']}', '{$image['title']}', '{$image['description']}')\">";
 
                 // Check if the user has already liked the photo
@@ -131,6 +143,27 @@ if (isset($_POST['likeImage'])) {
 
                 echo "</div>";
             }
+            // Get current page number from the query string
+            echo "</div>";
+$currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+$viewUserGallery = $home->getUserGallery($viewUserId, $currentPage);
+
+echo "<div class='w3-row social-profiles2'>";
+    foreach ($viewUserGallery as $image) {
+        echo "<div class=' w3-third  w3-container'>";
+        // Display image as before...
+        echo "</div>";
+    }
+    echo "</div>";
+// Display pagination links
+$totalPages = ceil($totalImages / 6); // Assuming 6 images per page
+echo "<div class='pagination'>";
+for ($i = 1; $i <= $totalPages; $i++) {
+    echo "<a href='viewuser.php?user_id=$viewUserId&page=$i'>$i</a> ";
+}
+echo "</div>";
+
         }
         ?>
     </div>
