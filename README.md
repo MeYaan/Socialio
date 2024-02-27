@@ -11,4 +11,5 @@ v1.0:
 -ViewUsers(Displays Other Users Profile Picture, Gallery and Info)
 
 v1.01
+-
 -Added Pagination to gallery for both users and other users
