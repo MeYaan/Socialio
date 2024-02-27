@@ -1,0 +1,704 @@
+.logout .submitbutton {
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.w3-container img {
+  transition: transform 0.3s; /* Add smooth transition effect */
+  margin-bottom: 10px;
+}
+
+.w3-container img:hover {
+  transform: scale(
+    1.1
+  ); /* Increase the scale factor to make the image bigger */
+}
+
+.w3-half.w3-container img {
+  width: 100%;
+
+  border: 2px solid rgba(0, 0, 0, 0.5); /* Add a border for aesthetic */
+  object-fit: cover;
+  max-height: 300px;
+}
+
+/* Responsive styling for the gallery images */
+@media screen and (max-width: 800px) {
+  .w3-half.w3-container img {
+    width: 100%;
+    max-height: 200px; /* Remove the maximum height for smaller screens */
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .w3-half.w3-container img {
+    width: 100%;
+    max-height: 300px; /* Remove the maximum height for smaller screens */
+    height: 300px;
+  }
+}
+
+body {
+  background-image: url(../images/white.jpg);
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  width: auto;
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: url("../images/white.jpg");
+  background-size: cover;
+  opacity: 0.5; /* Adjust the opacity to your liking */
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+body::before {
+  animation: moveBackground 15s linear infinite; /* Adjust the duration to control the speed */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  margin: auto;
+
+  display: block;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+#imageDetails {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content,
+#imageDetails {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {
+    -webkit-transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+.navbar.navbar-1 .navbar-toggler-icon {
+  background-image: url("https://mdbootstrap.com/img/svg/hamburger6.svg?color=000");
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #000000;
+  position: relative;
+}
+
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  color: rgb(255, 255, 255);
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.topnav a:hover {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+}
+
+.active {
+  background-color: #000000;
+  color: rgb(0, 0, 0);
+}
+
+.logout-link {
+  display: block;
+  color: #ffffff;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.logout-link:hover {
+  background-color: #555;
+}
+
+/* Add this to your existing CSS or create a new stylesheet */
+
+#wrapper {
+  width: 80%;
+  margin: auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  max-width: 800px;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.form-group1 input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.update-button {
+  cursor: pointer;
+  width: 100%;
+  background-color: #3498db;
+  color: #ffffff;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  max-width: 800px;
+}
+
+.update-button:hover {
+  background-color: #2980b9;
+}
+
+.download-button {
+  cursor: pointer;
+  width: 40%;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid black;
+  border-radius: 5px;
+  max-width: 300px;
+  min-width: fit-content;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.download-button:hover {
+  background-color: #00c3ff;
+  color: #ffffff;
+}
+
+.edit-button {
+  cursor: pointer;
+  width: 40%;
+  background-color: #a5a5a5;
+  color: #ffffff;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid black;
+  border-radius: 5px;
+  max-width: 300px;
+  min-width: fit-content;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.edit-button:hover {
+  background-color: #28c900c2;
+  color: #ffffff;
+}
+
+.delete-button2 {
+  cursor: pointer;
+  width: 40%;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid black;
+  border-radius: 5px;
+  min-width: fit-content;
+  max-width: 300px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.delete-button2:hover {
+  background-color: #ff0000;
+}
+
+/* Add margin between the Download and Delete buttons */
+.download-button,
+.delete-button2 {
+  margin-right: 10px; /* Adjust the margin as needed */
+}
+
+/* Add margin to the Delete button when it's the only button in a row */
+.delete-button2:last-child {
+  margin-right: 0;
+}
+
+.delete-button {
+  cursor: pointer;
+  width: 100%;
+  background-color: #db3434;
+  color: #ffffff;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  max-width: 800px;
+  margin-top: 10px;
+}
+
+.delete-button:hover {
+  background-color: #b92929;
+}
+
+.message {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #27ae60;
+}
+
+.error-message {
+  color: #c0392b;
+}
+
+/* Custom styles for social profiles */
+.social-profiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.social-profile {
+  text-align: center;
+  margin: 10px;
+}
+
+.socials-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%; /* Make the image round */
+  margin-top: 5px;
+  border: solid black 1px;
+}
+
+
+.socials-name {
+  margin-top: 5px;
+}
+
+.user-name {
+  font-size: 30px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: black;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .topnav a:not(:first-child) {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .topnav.responsive {
+    position: relative;
+  }
+
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+.content {
+  padding: 20px;
+  text-align: center;
+}
+
+.logo img {
+  width: 50%;
+  max-width: 400px;
+}
+
+.social-profile img {
+  transition: transform 0.3s; /* Add smooth transition effect */
+  margin-bottom: 10px;
+}
+
+/* Add this style to remove underline from links within social-profile */
+.social-profile a {
+  text-decoration: none;
+}
+
+/* Optional: Add color styling for links */
+.social-profile a {
+  color: #000000; /* Set your desired color */
+}
+
+/* Optional: Add hover effect for links */
+.social-profile a:hover {
+  color: #0160b8; /* Set your desired hover color */
+}
+
+.social-profile img:hover {
+  transform: scale(
+    1.1);
+  color: #0160b8; /* Set your desired hover color */
+}
+
+.textarea1 {
+  width: 100%;
+  max-width: 800px;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 1px solid #444343;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Add this style to your CSS */
+#editImageModal {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
+  padding-top: 60px;
+}
+
+
+/* ... (Other styles) ... */
+
+/* Light Mode Styles (Default) */
+body:not(.dark-mode) {
+  background-image: url(../images/white.jpg);
+  /* Add other light mode styles here */
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-image: url(../images/black.jpg); /* Change to your dark background image */
+  /* Add other dark mode styles here */
+}
+
+body.dark-mode::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: url("../images/black.jpg");
+  background-size: cover;
+  opacity: 0.5; /* Adjust the opacity to your liking */
+}
+
+/* Add specific styles for elements in dark mode */
+body.dark-mode .w3-container img {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+body.dark-mode .socials-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%; /* Make the image round */
+  margin-top: 5px;
+  border: solid rgb(255, 255, 255) 1px;
+}
+
+body.dark-mode .socials-name {
+  margin-top: 5px;
+  color:white;
+}
+
+body.dark-mode span {
+  margin-top: 5px;
+  color:white;
+}
+
+body.dark-mode .w3-panel.w3-text-grey {
+  color: #fff;
+}
+
+body.dark-mode .w3-light-grey
+{
+  color: #ffffff !important;
+  background-color: #757575 !important;
+  
+}
+
+body.dark-mode .w3-black
+{
+  color: #ffffff !important;
+  background-color: #464646 !important;
+  border: solid black 1px !important;
+}
+
+body.dark-mode .w3-border
+{
+  color: #ffffff !important;
+  border: solid black 1px !important;
+}
+
+body.dark-mode .download-button
+{
+  border: solid rgb(255, 255, 255) 1px;
+}
+
+body.dark-mode .edit-button
+{
+  border: solid rgb(255, 255, 255) 1px;
+}
+
+body.dark-mode .delete-button2
+{
+  border: solid rgb(255, 255, 255) 1px;
+}
+
+body.dark-mode .w3-panel.w3-text-grey h4 {
+  background-color: #333;
+  color: #fff;
+}
+/* Add more dark mode styles as needed */
+
+/* Add light mode styles for specific elements */
+body:not(.dark-mode) .w3-container img {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+body:not(.dark-mode) .w3-panel.w3-text-grey {
+  color: #333;
+}
+
+body:not(.dark-mode) .w3-panel.w3-text-grey h4 {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* Dark mode switch button styling */
+.dark-mode-switch {
+  position: fixed;
+  top: 60px;
+  right: 10px;
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+body.dark-mode .dark-mode-switch {
+  position: fixed;
+  top: 60px;
+  right: 10px;
+  background-color: #ffffff;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+body.dark-mode label
+{
+  color: white;
+}
+
+body.dark-mode input
+{
+  background-color: #333;
+  color: white;
+}
+
+body.dark-mode h1
+{
+  
+  color: white;
+}
+
+body.dark-mode p
+{
+  
+  color: white;
+}
+
+body.dark-mode .buttonfile
+{
+  background-color: #333;
+  color: white;
+}
+
+
+body.dark-mode textarea
+{
+  background-color: #333;
+  color: white;
+}
+
+
+
+body.dark-mode h2
+{
+  color: white;
+}
+
+.icon {
+  width: 55px; /* Increase the size of the icon */
+  height: 55px; /* Increase the size of the icon */
+  
+}
+
+.icon2 {
+  width: 30px; /* Increase the size of the icon */
+  height: 30px; /* Increase the size of the icon */
+
+}
+
+/* Style the button for better visibility */
+.dark-mode-switch:hover {
+  transform: scale(
+    1.1);
+}
+
+
+@media screen and (max-width: 800px) {
+  .w3-third.w3-container img {
+    max-width: 500px;
+    margin-top: 5px;
+    
+  }
+}
+.gallery-image
+{
+  width: 100%;
+  margin-top: 5px;
+  object-fit: fill;
+}
