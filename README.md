@@ -13,3 +13,13 @@ v1.0:
 v1.01
 -
 -Added Pagination to gallery for both users and other users
+
+
+Upcoming
+-
+
+-Search Users<br>
+-Friends<br>
+-Comments<br>
+-Privacy<br>
+-Gallery and Modal(Overhaul)
