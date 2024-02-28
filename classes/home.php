@@ -102,25 +102,25 @@ class Home
     }
 
     public function getTotalImagesCount($userId)
-{
-    $stmt = $this->db->prepare("SELECT COUNT(*) FROM gallery WHERE user_id = ?");
-    $stmt->execute([$userId]);
-    return $stmt->fetchColumn();
-}
+    {
+        $stmt = $this->db->prepare("SELECT COUNT(*) FROM gallery WHERE user_id = ?");
+        $stmt->execute([$userId]);
+        return $stmt->fetchColumn();
+    }
 
-public function getUserGallery($userId, $page = 1, $perPage = 6)
-{
-    $offset = ($page - 1) * $perPage;
+    public function getUserGallery($userId, $page = 1, $perPage = 6)
+    {
+        $offset = ($page - 1) * $perPage;
 
-    $stmt = $this->db->prepare("SELECT * FROM gallery WHERE user_id = ? ORDER BY id DESC LIMIT ?, ?");
-    $stmt->bindParam(1, $userId, PDO::PARAM_INT);
-    $stmt->bindParam(2, $offset, PDO::PARAM_INT);
-    $stmt->bindParam(3, $perPage, PDO::PARAM_INT);
+        $stmt = $this->db->prepare("SELECT * FROM gallery WHERE user_id = ? ORDER BY id DESC LIMIT ?, ?");
+        $stmt->bindParam(1, $userId, PDO::PARAM_INT);
+        $stmt->bindParam(2, $offset, PDO::PARAM_INT);
+        $stmt->bindParam(3, $perPage, PDO::PARAM_INT);
 
-    $stmt->execute();
+        $stmt->execute();
 
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
 
 
@@ -141,7 +141,7 @@ public function getUserGallery($userId, $page = 1, $perPage = 6)
         // Delete the image record from the database
         // Assuming $imageId is the ID of the image you want to delete
         $this->db->prepare("DELETE FROM likes WHERE image_id = ?")->execute([$imageId]);
-        
+
         $this->db->prepare("DELETE FROM gallery WHERE id = ?")->execute([$imageId]);
 
 
@@ -230,33 +230,31 @@ public function getUserGallery($userId, $page = 1, $perPage = 6)
         return $count > 0;
     }
     public function updateImageDetails($userId, $imageId, $newTitle, $newDetails)
-{
-    // Use a prepared statement to update the title and details
-    $stmt = $this->db->prepare("UPDATE gallery SET title = ?, description = ? WHERE user_id = ? AND id = ?");
-    $stmt->execute([$newTitle, $newDetails, $userId, $imageId]);
-    // Add error handling if needed
-}
+    {
+        // Use a prepared statement to update the title and details
+        $stmt = $this->db->prepare("UPDATE gallery SET title = ?, description = ? WHERE user_id = ? AND id = ?");
+        $stmt->execute([$newTitle, $newDetails, $userId, $imageId]);
+        // Add error handling if needed
+    }
 
-public function getViewTotalImagesCount($viewUserId)
-{
-    $stmt = $this->db->prepare("SELECT COUNT(*) FROM gallery WHERE user_id = ?");
-    $stmt->execute([$viewUserId]);
-    return $stmt->fetchColumn();
-}
+    public function getViewTotalImagesCount($viewUserId)
+    {
+        $stmt = $this->db->prepare("SELECT COUNT(*) FROM gallery WHERE user_id = ?");
+        $stmt->execute([$viewUserId]);
+        return $stmt->fetchColumn();
+    }
 
-public function getViewUserGallery($viewUserId, $page = 1, $perPage = 6)
-{
-    $offset = ($page - 1) * $perPage;
+    public function getViewUserGallery($viewUserId, $page = 1, $perPage = 6)
+    {
+        $offset = ($page - 1) * $perPage;
 
-    $stmt = $this->db->prepare("SELECT * FROM gallery WHERE user_id = ? ORDER BY id DESC LIMIT ?, ?");
-    $stmt->bindParam(1, $viewUserId, PDO::PARAM_INT);
-    $stmt->bindParam(2, $offset, PDO::PARAM_INT);
-    $stmt->bindParam(3, $perPage, PDO::PARAM_INT);
+        $stmt = $this->db->prepare("SELECT * FROM gallery WHERE user_id = ? ORDER BY id DESC LIMIT ?, ?");
+        $stmt->bindParam(1, $viewUserId, PDO::PARAM_INT);
+        $stmt->bindParam(2, $offset, PDO::PARAM_INT);
+        $stmt->bindParam(3, $perPage, PDO::PARAM_INT);
 
-    $stmt->execute();
+        $stmt->execute();
 
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

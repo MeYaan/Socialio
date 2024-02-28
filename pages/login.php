@@ -106,4 +106,5 @@ if (isset($_POST['login'])) {
 <button onclick="toggleDarkMode()" class="dark-mode-switch">
   <img id="darkModeIcon" src="../images/nightmode.png" alt="Dark Mode Icon" class="icon2">
 </button>
+
 </html>

@@ -370,7 +370,6 @@ input {
   border: solid black 1px;
 }
 
-
 .socials-name {
   margin-top: 5px;
 }
@@ -456,8 +455,7 @@ input {
 }
 
 .social-profile img:hover {
-  transform: scale(
-    1.1);
+  transform: scale(1.1);
   color: #0160b8; /* Set your desired hover color */
 }
 
@@ -490,7 +488,6 @@ input {
   background-color: rgba(0, 0, 0, 0.9);
   padding-top: 60px;
 }
-
 
 /* ... (Other styles) ... */
 
@@ -535,50 +532,43 @@ body.dark-mode .socials-image {
 
 body.dark-mode .socials-name {
   margin-top: 5px;
-  color:white;
+  color: white;
 }
 
 body.dark-mode span {
   margin-top: 5px;
-  color:white;
+  color: white;
 }
 
 body.dark-mode .w3-panel.w3-text-grey {
   color: #fff;
 }
 
-body.dark-mode .w3-light-grey
-{
+body.dark-mode .w3-light-grey {
   color: #ffffff !important;
   background-color: #757575 !important;
-  
 }
 
-body.dark-mode .w3-black
-{
+body.dark-mode .w3-black {
   color: #ffffff !important;
   background-color: #464646 !important;
   border: solid black 1px !important;
 }
 
-body.dark-mode .w3-border
-{
+body.dark-mode .w3-border {
   color: #ffffff !important;
   border: solid black 1px !important;
 }
 
-body.dark-mode .download-button
-{
+body.dark-mode .download-button {
   border: solid rgb(255, 255, 255) 1px;
 }
 
-body.dark-mode .edit-button
-{
+body.dark-mode .edit-button {
   border: solid rgb(255, 255, 255) 1px;
 }
 
-body.dark-mode .delete-button2
-{
+body.dark-mode .delete-button2 {
   border: solid rgb(255, 255, 255) 1px;
 }
 
@@ -627,78 +617,59 @@ body.dark-mode .dark-mode-switch {
   cursor: pointer;
 }
 
-body.dark-mode label
-{
+body.dark-mode label {
   color: white;
 }
 
-body.dark-mode input
-{
+body.dark-mode input {
   background-color: #333;
   color: white;
 }
 
-body.dark-mode h1
-{
-  
+body.dark-mode h1 {
   color: white;
 }
 
-body.dark-mode p
-{
-  
+body.dark-mode p {
   color: white;
 }
 
-body.dark-mode .buttonfile
-{
+body.dark-mode .buttonfile {
   background-color: #333;
   color: white;
 }
 
-
-body.dark-mode textarea
-{
+body.dark-mode textarea {
   background-color: #333;
   color: white;
 }
 
-
-
-body.dark-mode h2
-{
+body.dark-mode h2 {
   color: white;
 }
 
 .icon {
   width: 55px; /* Increase the size of the icon */
   height: 55px; /* Increase the size of the icon */
-  
 }
 
 .icon2 {
   width: 30px; /* Increase the size of the icon */
   height: 30px; /* Increase the size of the icon */
-
 }
 
 /* Style the button for better visibility */
 .dark-mode-switch:hover {
-  transform: scale(
-    1.1);
+  transform: scale(1.1);
 }
-
 
 @media screen and (max-width: 800px) {
   .w3-third.w3-container img {
     max-width: 500px;
     margin-top: 5px;
-    
   }
 }
-.gallery-image
-{
-  
+.gallery-image {
   width: 100%;
   margin-top: 5px;
   object-fit: fill;
@@ -707,9 +678,7 @@ body.dark-mode h2
 .social-profiles2 {
   display: flex;
   flex-wrap: wrap;
-  
 }
-
 
 .pagination {
   display: flex;
@@ -721,7 +690,7 @@ body.dark-mode h2
   color: black;
   padding: 8px 16px;
   text-decoration: none;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
   border: 1px solid #ddd;
   margin: 0 4px;
 }
@@ -731,7 +700,7 @@ body.dark-mode h2
 }
 
 .pagination a.active {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
 }
 
@@ -739,7 +708,7 @@ body.dark-mode .pagination a {
   color: rgb(255, 255, 255);
   padding: 8px 16px;
   text-decoration: none;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
   background-color: #292929;
   border: 1px solid #ddd;
   margin: 0 4px;
@@ -751,6 +720,6 @@ body.dark-mode .pagination a:hover {
 }
 
 body.dark-mode .pagination a.active {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: rgb(0, 0, 0);
 }

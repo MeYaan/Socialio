@@ -15,4 +15,3 @@ if (isset($_POST['email'])) {
         echo 'not_exists';
     }
 }
-?>

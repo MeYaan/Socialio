@@ -124,8 +124,8 @@ if (isset($_POST['update'])) {
     </div>
 
     <button onclick="toggleDarkMode()" class="dark-mode-switch">
-  <img id="darkModeIcon" src="../images/nightmode.png" alt="Dark Mode Icon" class="icon2">
-</button>
+        <img id="darkModeIcon" src="../images/nightmode.png" alt="Dark Mode Icon" class="icon2">
+    </button>
 </body>
 
 </html>

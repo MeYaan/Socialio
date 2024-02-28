@@ -10,10 +10,6 @@ function openModal(imageSrc, title, description) {
   modal.style.display = "block";
 }
 
-
-
-
-
 function closeModal() {
   document.getElementById("imageModal").style.display = "none";
 }
@@ -147,34 +143,31 @@ function sendLikeDislikeRequest(userId, imageId, imageName, action) {
   xhr.send(params);
 }
 
-
-var originalModalDisplay = '';
+var originalModalDisplay = "";
 
 // Function to open the edit modal with pre-filled values
 function openEditModal(imageSrc, imageId, title, details) {
-
   var editPreviewImage = document.getElementById("editPreviewImage");
   editPreviewImage.src = imageSrc;
-    // Store the original display style
-    
+  // Store the original display style
 
-    // Hide the image details modal
-    document.getElementById('imageModal').style.display = 'none';
+  // Hide the image details modal
+  document.getElementById("imageModal").style.display = "none";
 
-    // Set the values in the edit modal
-    document.getElementById('editImageId').value = imageId;
-    document.getElementById('editTitle').value = title;
-    document.getElementById('editDetails').value = details;
-    document.getElementById('editImageModal').style.display = 'block';
+  // Set the values in the edit modal
+  document.getElementById("editImageId").value = imageId;
+  document.getElementById("editTitle").value = title;
+  document.getElementById("editDetails").value = details;
+  document.getElementById("editImageModal").style.display = "block";
 }
 
 // Function to close the edit modal
 function closeEditModal() {
-    // Restore the original display style of the image details modal
-    document.getElementById('imageModal').style.display = originalModalDisplay;
+  // Restore the original display style of the image details modal
+  document.getElementById("imageModal").style.display = originalModalDisplay;
 
-    // Close the edit modal
-    document.getElementById('editImageModal').style.display = 'none';
+  // Close the edit modal
+  document.getElementById("editImageModal").style.display = "none";
 }
 
 function toggleDarkMode() {
@@ -191,7 +184,9 @@ function toggleDarkMode() {
   localStorage.setItem("darkMode", isDarkMode);
 
   // Update the dark mode icon based on the mode
-  darkModeIcon.src = isDarkMode ? "../images/lightmode.png" : "../images/nightmode.png";
+  darkModeIcon.src = isDarkMode
+    ? "../images/lightmode.png"
+    : "../images/nightmode.png";
 
   // Additional function calls or logic after toggling
   updateEditBioIcon();
@@ -202,8 +197,7 @@ function updateEditBioIcon() {
   const isDarkMode = document.body.classList.contains("dark-mode");
 
   // Update the image source based on dark mode status
-  editBioIcon.src ="../images/edit.png" ;
-
+  editBioIcon.src = "../images/edit.png";
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -220,8 +214,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Apply the mode to the body and update the icon
   body.classList.toggle("dark-mode", isDarkMode);
-  darkModeIcon.src = isDarkMode ? "../images/lightmode.png" : "../images/nightmode.png";
+  darkModeIcon.src = isDarkMode
+    ? "../images/lightmode.png"
+    : "../images/nightmode.png";
 });
-
-
-

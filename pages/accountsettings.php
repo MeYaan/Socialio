@@ -114,7 +114,7 @@ if (isset($_POST['deleteAccount'])) {
         <div class="form-group">
           <label for="profileImage">Upload New Profile Image:</label>
           <div id="imagePreview"></div>
-          <button class = "buttonfile"><input type="file" name="profileImage" accept="image/*" onchange="previewImage(this)"></button>
+          <button class="buttonfile"><input type="file" name="profileImage" accept="image/*" onchange="previewImage(this)"></button>
 
         </div>
 
@@ -159,7 +159,7 @@ if (isset($_POST['deleteAccount'])) {
           <label for="galleryImage">
             <h3>Upload to Gallery:</h3>
           </label>
-          <button class = "buttonfile"><input type="file" name="galleryImage[]" accept="image/*" multiple></button>
+          <button class="buttonfile"><input type="file" name="galleryImage[]" accept="image/*" multiple></button>
           <label for="title">Title:</label>
 
           <input type="text" name="title[]" placeholder="Enter title">
@@ -282,8 +282,6 @@ if (isset($_POST['deleteAccount'])) {
         reader.readAsDataURL(input.files[0]);
       }
     }
-
-    
   </script>
 
   <div style="display: none;">
@@ -293,8 +291,8 @@ if (isset($_POST['deleteAccount'])) {
   </div>
 
   <button onclick="toggleDarkMode()" class="dark-mode-switch">
-  <img id="darkModeIcon" src="../images/nightmode.png" alt="Dark Mode Icon" class="icon2">
-</button>
+    <img id="darkModeIcon" src="../images/nightmode.png" alt="Dark Mode Icon" class="icon2">
+  </button>
 
 </body>
 

@@ -33,33 +33,33 @@ class User
         // Check if the email already exists
         $stmt = $this->db->prepare("SELECT * FROM users WHERE email = ?");
         $stmt->execute([$email]);
-    
+
         $existingUser = $stmt->fetch(PDO::FETCH_ASSOC);
-    
+
         if ($existingUser) {
             echo "<script>alert('Email already exists. Please choose a different email.');</script>";
             return; // Do not proceed with the registration
         }
-    
+
         // Continue with the registration process if the email is unique
         if ($password !== $confirmPassword) {
             echo "<script>alert('Passwords do not match');</script>";
             return; // Do not proceed with the registration
         }
-    
+
         $hashedPassword = hash('sha256', $password);
-    
+
         $stmt = $this->db->prepare("INSERT INTO userinfo (user_id, firstname, lastname, phonenumber, address) VALUES (NULL, ?, ?, ?, ?)");
         $stmt->execute([$firstname, $lastname, $phonenumber, $address]);
-    
+
         $user_id = $this->db->lastInsertId();
-    
+
         $stmt = $this->db->prepare("INSERT INTO users (email, password) VALUES (?, ?)");
         $stmt->execute([$email, $hashedPassword]);
-    
+
         echo "<script>alert('Registered Successfully'); window.location = 'login.php';</script>";
     }
-    
+
 
 
     public function getOtherUsers($userId)
@@ -92,5 +92,4 @@ class User
         $this->db->prepare("UPDATE gallery SET likes = likes + 1 WHERE user_id = ? AND id = ?")
             ->execute([$userId, $imageId]);
     }
-
 }

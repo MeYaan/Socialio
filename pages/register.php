@@ -28,9 +28,6 @@ if (isset($_POST['register'])) {
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="home.js"></script>
     <script>
-
-
-    
         function validatePassword() {
             var password = document.getElementById("password").value;
             var confirmPassword = document.getElementById("confirm_password").value;
@@ -50,77 +47,74 @@ if (isset($_POST['register'])) {
 
             return true;
 
-            
+
         }
-
-
-        
     </script>
 
-<style>
-    .password-container {
-      position: relative;
-      margin-bottom: 20px;
-    }
+    <style>
+        .password-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
 
-    #password {
-      padding-right: 30px;
-      /* Adjust the padding to make space for the icon */
-    }
+        #password {
+            padding-right: 30px;
+            /* Adjust the padding to make space for the icon */
+        }
 
-    #togglePassword {
-      font-size: 25px;
-      color: black;
-      position: absolute;
-      top: 68%;
-      right: 10px;
-      /* Adjust the right position as needed */
-      cursor: pointer;
-      transform: translateY(-50%);
-    }
+        #togglePassword {
+            font-size: 25px;
+            color: black;
+            position: absolute;
+            top: 68%;
+            right: 10px;
+            /* Adjust the right position as needed */
+            cursor: pointer;
+            transform: translateY(-50%);
+        }
 
-    #toggleConfirmPassword {
-      font-size: 25px;
-      color: black;
-      position: absolute;
-      top: 68%;
-      right: 10px;
-      /* Adjust the right position as needed */
-      cursor: pointer;
-      transform: translateY(-50%);
-    }
+        #toggleConfirmPassword {
+            font-size: 25px;
+            color: black;
+            position: absolute;
+            top: 68%;
+            right: 10px;
+            /* Adjust the right position as needed */
+            cursor: pointer;
+            transform: translateY(-50%);
+        }
 
-    body.dark-mode #togglePassword {
-      font-size: 25px;
-      color: black;
-      position: absolute;
-      top: 68%;
-      right: 10px;
-      background-color: lightgray;
-      border-radius: 5px;
-      /* Adjust the right position as needed */
-      cursor: pointer;
-      transform: translateY(-50%);
-    }
+        body.dark-mode #togglePassword {
+            font-size: 25px;
+            color: black;
+            position: absolute;
+            top: 68%;
+            right: 10px;
+            background-color: lightgray;
+            border-radius: 5px;
+            /* Adjust the right position as needed */
+            cursor: pointer;
+            transform: translateY(-50%);
+        }
 
-    body.dark-mode #toggleConfirmPassword {
-      font-size: 25px;
-      color: black;
-      position: absolute;
-      top: 68%;
-      right: 10px;
-      background-color: lightgray;
-      border-radius: 5px;
-      /* Adjust the right position as needed */
-      cursor: pointer;
-      transform: translateY(-50%);
-    }
-  </style>
+        body.dark-mode #toggleConfirmPassword {
+            font-size: 25px;
+            color: black;
+            position: absolute;
+            top: 68%;
+            right: 10px;
+            background-color: lightgray;
+            border-radius: 5px;
+            /* Adjust the right position as needed */
+            cursor: pointer;
+            transform: translateY(-50%);
+        }
+    </style>
 </head>
 
 <body>
     <div class="register">
-        <form action="register.php" method="post" onsubmit="return validatePassword()"  id="registrationForm">
+        <form action="register.php" method="post" onsubmit="return validatePassword()" id="registrationForm">
             <center><img src="../images/logowhite.png" alt="Logo" class="logo"></center>
             <h3>Registration</h3>
 
@@ -129,15 +123,15 @@ if (isset($_POST['register'])) {
             <span id="emailExists" style=" display: none;">Email already exists. Please choose a different email.</span>
 
             <div class="password-container">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" minlength="8" required></input>
-            <i class="bi bi-eye-slash" id="togglePassword"></i>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" minlength="8" required></input>
+                <i class="bi bi-eye-slash" id="togglePassword"></i>
             </div>
 
             <div class="password-container">
-            <label for="confirm_password">Confirm Password</label>
-            <input type="password" name="confirm_password" id="confirm_password" minlength="8" required></input>
-            <i class="bi bi-eye-slash" id="toggleConfirmPassword"></i>
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" name="confirm_password" id="confirm_password" minlength="8" required></input>
+                <i class="bi bi-eye-slash" id="toggleConfirmPassword"></i>
             </div>
 
             <label for="firstname">First Name</label>
@@ -159,51 +153,52 @@ if (isset($_POST['register'])) {
     </div>
 
     <script>
-    function togglePasswordVisibility(inputId, iconId) {
-        const passwordInput = document.getElementById(inputId);
-        const toggleIcon = document.getElementById(iconId);
+        function togglePasswordVisibility(inputId, iconId) {
+            const passwordInput = document.getElementById(inputId);
+            const toggleIcon = document.getElementById(iconId);
 
-        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
-        toggleIcon.classList.toggle('bi-eye');
-        toggleIcon.classList.toggle('bi-eye-slash');
-    }
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            toggleIcon.classList.toggle('bi-eye');
+            toggleIcon.classList.toggle('bi-eye-slash');
+        }
 
-    document.getElementById('togglePassword').addEventListener('click', () => {
-        togglePasswordVisibility('password', 'togglePassword');
-    });
+        document.getElementById('togglePassword').addEventListener('click', () => {
+            togglePasswordVisibility('password', 'togglePassword');
+        });
 
-    document.getElementById('toggleConfirmPassword').addEventListener('click', () => {
-        togglePasswordVisibility('confirm_password', 'toggleConfirmPassword');
-    });
+        document.getElementById('toggleConfirmPassword').addEventListener('click', () => {
+            togglePasswordVisibility('confirm_password', 'toggleConfirmPassword');
+        });
 
-    function checkExistingEmail(email) {
-                    $.ajax({
-                        type: 'POST',
-                        url: 'check_email.php', // Create a new PHP file for checking email
-                        data: { email: email },
-                        success: function (response) {
-                            if (response === 'exists') {
-                                $('#emailExists').show();
-                            } else {
-                                $('#emailExists').hide();
-                            }
-                        }
-                    });
-                }
-
-                function submitRegistration() {
-                    if ($('#emailExists').is(':visible')) {
-                        alert('Email already exists. Please choose a different email.');
+        function checkExistingEmail(email) {
+            $.ajax({
+                type: 'POST',
+                url: 'check_email.php', // Create a new PHP file for checking email
+                data: {
+                    email: email
+                },
+                success: function(response) {
+                    if (response === 'exists') {
+                        $('#emailExists').show();
                     } else {
-                        // Proceed with form submission
-                        document.getElementById('registrationForm').submit();
+                        $('#emailExists').hide();
                     }
                 }
+            });
+        }
 
-</script>
-<button onclick="toggleDarkMode()" class="dark-mode-switch">
-  <img id="darkModeIcon" src="../images/nightmode.png" alt="Dark Mode Icon" class="icon2">
-</button>
+        function submitRegistration() {
+            if ($('#emailExists').is(':visible')) {
+                alert('Email already exists. Please choose a different email.');
+            } else {
+                // Proceed with form submission
+                document.getElementById('registrationForm').submit();
+            }
+        }
+    </script>
+    <button onclick="toggleDarkMode()" class="dark-mode-switch">
+        <img id="darkModeIcon" src="../images/nightmode.png" alt="Dark Mode Icon" class="icon2">
+    </button>
 
 </body>

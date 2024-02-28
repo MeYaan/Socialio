@@ -123,11 +123,11 @@ if (isset($_POST['likeImage'])) {
 
 
             $totalImages = $home->getTotalImagesCount($viewUserId);
-            
-        // Get user gallery for the current page
+
+            // Get user gallery for the current page
             $viewUserGallery = $home->getUserGallery($viewUserId, $currentPage);
-    
-// Get user gallery for the current page
+
+            // Get user gallery for the current page
 
 
             foreach ($viewUserGallery as $image) {
@@ -145,25 +145,24 @@ if (isset($_POST['likeImage'])) {
             }
             // Get current page number from the query string
             echo "</div>";
-$currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+            $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
-$viewUserGallery = $home->getUserGallery($viewUserId, $currentPage);
+            $viewUserGallery = $home->getUserGallery($viewUserId, $currentPage);
 
-echo "<div class='w3-row social-profiles2'>";
-    foreach ($viewUserGallery as $image) {
-        echo "<div class=' w3-third  w3-container'>";
-        // Display image as before...
-        echo "</div>";
-    }
-    echo "</div>";
-// Display pagination links
-$totalPages = ceil($totalImages / 6); // Assuming 6 images per page
-echo "<div class='pagination'>";
-for ($i = 1; $i <= $totalPages; $i++) {
-    echo "<a href='viewuser.php?user_id=$viewUserId&page=$i'>$i</a> ";
-}
-echo "</div>";
-
+            echo "<div class='w3-row social-profiles2'>";
+            foreach ($viewUserGallery as $image) {
+                echo "<div class=' w3-third  w3-container'>";
+                // Display image as before...
+                echo "</div>";
+            }
+            echo "</div>";
+            // Display pagination links
+            $totalPages = ceil($totalImages / 6); // Assuming 6 images per page
+            echo "<div class='pagination'>";
+            for ($i = 1; $i <= $totalPages; $i++) {
+                echo "<a href='viewuser.php?user_id=$viewUserId&page=$i'>$i</a> ";
+            }
+            echo "</div>";
         }
         ?>
     </div>
@@ -215,8 +214,8 @@ echo "</div>";
     </div>
 
     <button onclick="toggleDarkMode()" class="dark-mode-switch">
-  <img id="darkModeIcon" src="../images/nightmode.png" alt="Dark Mode Icon" class="icon2">
-</button>
+        <img id="darkModeIcon" src="../images/nightmode.png" alt="Dark Mode Icon" class="icon2">
+    </button>
 
 </body>
 
