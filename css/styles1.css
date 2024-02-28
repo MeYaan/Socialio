@@ -1,3 +1,5 @@
+/*Logout and Submit button*/
+
 .logout .submitbutton {
   cursor: pointer;
   margin-top: 20px;
@@ -9,6 +11,8 @@
   font-weight: 600;
   border-radius: 5px;
 }
+
+/*Image container*/
 
 .w3-container img {
   transition: transform 0.3s; /* Add smooth transition effect */
@@ -45,6 +49,8 @@
     height: 300px;
   }
 }
+
+/*Body and Background Image*/
 
 body {
   background-image: url(../images/white.jpg);
@@ -85,6 +91,8 @@ body::before {
 body::before {
   animation: moveBackground 15s linear infinite; /* Adjust the duration to control the speed */
 }
+
+/*Modals*/
 
 .modal {
   display: none;
@@ -156,6 +164,8 @@ body::before {
   cursor: pointer;
 }
 
+/*Navigation bar*/
+
 .navbar.navbar-1 .navbar-toggler-icon {
   background-image: url("https://mdbootstrap.com/img/svg/hamburger6.svg?color=000");
 }
@@ -201,6 +211,7 @@ body::before {
 
 /* Add this to your existing CSS or create a new stylesheet */
 
+/*Account Settings*/
 #wrapper {
   width: 80%;
   margin: auto;
@@ -246,6 +257,27 @@ input {
 .update-button:hover {
   background-color: #2980b9;
 }
+
+.delete-button {
+  cursor: pointer;
+  width: 100%;
+  background-color: #db3434;
+  color: #ffffff;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  max-width: 800px;
+  margin-top: 10px;
+}
+
+.delete-button:hover {
+  background-color: #b92929;
+}
+
+
+/*Gallery Edit, Delete and Download*/
 
 .download-button {
   cursor: pointer;
@@ -321,23 +353,8 @@ input {
   margin-right: 0;
 }
 
-.delete-button {
-  cursor: pointer;
-  width: 100%;
-  background-color: #db3434;
-  color: #ffffff;
-  padding: 15px;
-  font-size: 18px;
-  font-weight: 600;
-  border: none;
-  border-radius: 5px;
-  max-width: 800px;
-  margin-top: 10px;
-}
 
-.delete-button:hover {
-  background-color: #b92929;
-}
+
 
 .message {
   margin-top: 10px;

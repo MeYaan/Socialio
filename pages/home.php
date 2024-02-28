@@ -273,8 +273,6 @@ if (empty($userGallery)) {
 
     </div>
 
-    
-
     <!-- Footer -->
     <div class="w3-row w3-section">
         <div class="w3-third w3-center w3-container w3-black w3-large" style="height:300px">
