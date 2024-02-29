@@ -16,7 +16,7 @@ v1.01
 
 1.02
 -
--Improve Gallery Edit UI
+-Improve Gallery Edit UI<br>
 -Capture via Video Cam option on Account Settings
 
 
