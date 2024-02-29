@@ -15,6 +15,7 @@ v1.01
 -Added Pagination to gallery for both users and other users
 
 1.02
+-
 -Improve Gallery Edit UI
 -Capture via Video Cam option on Account Settings
 
