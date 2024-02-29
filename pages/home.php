@@ -90,6 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="#home" class="active">Dashboard</a>
         <a href="accountsettings.php">Account Settings</a>
         <a href="socialio.php">About Socialio</a>
+        
         <a href="javascript:void(0);" class="logout-link" onclick="logout()">Logout</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars navbar-toggler"></i>
@@ -256,7 +257,7 @@ if (empty($userGallery)) {
         <label for="editDetails" style="color: white;">Details:</label>
         <textarea id="editDetails" name="editDetails" rows="4" cols="50"></textarea>
         <br>
-        <button type="submit">Save Changes</button>
+        <button type="submit" class = "savechanges">Save Changes</button>
     </form>
 </div>
 

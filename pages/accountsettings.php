@@ -86,6 +86,7 @@ if (isset($_POST['deleteAccount'])) {
     <a href="#accountsettings" class="active">Account Settings</a>
     <a href="home.php">Dashboard</a>
     <a href="socialio.php">About Socialio</a>
+    
     <a href="javascript:void(0);" class="logout-link" onclick="logout()">Logout</a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
       <i class="fa fa-bars navbar-toggler"></i>
@@ -115,7 +116,7 @@ if (isset($_POST['deleteAccount'])) {
           <label for="profileImage">Upload New Profile Image:</label>
           <div id="imagePreview"></div>
           <button class="buttonfile"><input type="file" name="profileImage" accept="image/*" onchange="previewImage(this)"></button>
-
+          <br><a href="videocam.php">Capture via Video Cam</a>
         </div>
 
 

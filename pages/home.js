@@ -218,3 +218,5 @@ document.addEventListener("DOMContentLoaded", function () {
     ? "../images/lightmode.png"
     : "../images/nightmode.png";
 });
+
+
