@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="#home" class="active">Dashboard</a>
         <a href="accountsettings.php">Account Settings</a>
         <a href="socialio.php">About Socialio</a>
-        
+        <a href="videocam.php">Video Call</a>
         <a href="javascript:void(0);" class="logout-link" onclick="logout()">Logout</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars navbar-toggler"></i>

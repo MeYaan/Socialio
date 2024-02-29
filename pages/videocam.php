@@ -120,11 +120,11 @@ if (isset($_POST['update'])) {
     <div id="buttonContainer">
     
         <canvas id="canvas" style="display:none;"></canvas></br></br>
-        <button id="captureBtn" style="display:none;" onclick="captureImage()">Capture Image</button>
+        
         <canvas id="canvas" style="display:none;"></canvas>
         <button id="webcamToggleButton">Toggle Webcam</button>
-        
-        <img id="capturedImage" style="display:none;">
+        <button id="captureBtn" style="display:none;" onclick="captureImage()">Capture Image</button>
+        <center><img id="capturedImage" style="display:none;"></center>
         <button id="removeCapturedBtn" onclick="removeCapturedImage()" style="display:none;">Remove Captured Image</button>
         <a id="downloadLink" style="display:none;" download="captured_image.png">Download Image</a>
 
@@ -172,6 +172,8 @@ if (isset($_POST['update'])) {
         // Declare variables globally
 var video = document.querySelector("#videoElement");
 var canvas = document.querySelector("#canvas");
+var capturedImage = document.querySelector("#capturedImage");
+var downloadLink = document.querySelector("#downloadLink");
 var stream; // Declare the stream variable globally
 
 // Function to toggle webcam
@@ -217,24 +219,27 @@ var webcamToggleButton = document.getElementById("webcamToggleButton");
 webcamToggleButton.addEventListener("click", toggleWebcam);
         
 function captureImage() {
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-        canvas.getContext('2d').drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    canvas.getContext('2d').drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
 
-        // Flip the captured image horizontally
-        canvas.getContext('2d').scale(-1, 1);
-        canvas.getContext('2d').drawImage(video, -video.videoWidth, 0, video.videoWidth, video.videoHeight);
+    // Flip the captured image horizontally
+    canvas.getContext('2d').scale(-1, 1);
+    canvas.getContext('2d').drawImage(video, -video.videoWidth, 0, video.videoWidth, video.videoHeight);
 
-        capturedImage.src = canvas.toDataURL('image/png');
-        capturedImage.style.display = 'block';
+    capturedImage.src = canvas.toDataURL('image/png');
+    capturedImage.style.display = 'block';
 
-        // Show the remove captured image and download buttons
-        document.getElementById("removeCapturedBtn").style.display = "block";
-        document.getElementById("downloadLink").style.display = 'block';
+    // Set the download attribute with the captured image
+    downloadLink.href = capturedImage.src;
+    downloadLink.style.display = 'block';
 
-        // Hide the capture button
-        document.getElementById("captureBtn").style.display = "none";
-    }
+    // Show the remove captured image button
+    document.getElementById("removeCapturedBtn").style.display = "block";
+
+    // Hide the capture button
+    document.getElementById("captureBtn").style.display = "none";
+}
 
     function removeCapturedImage() {
         // Hide the captured image and download button
@@ -246,6 +251,8 @@ function captureImage() {
         // Hide the remove captured image button
         document.getElementById("removeCapturedBtn").style.display = "none";
     }
+
+    
 
     </script>
 
