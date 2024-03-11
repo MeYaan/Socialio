@@ -124,10 +124,10 @@ if (isset($_POST['update'])) {
         
         <canvas id="canvas" style="display:none;"></canvas>
         <button id="webcamToggleButton">Toggle Webcam</button>
-        <button id="captureBtn" style="display:none;" onclick="captureImage()">Capture Image</button>
-        <center><img id="capturedImage" style="display:none;"></center>
-        <button id="removeCapturedBtn" onclick="removeCapturedImage()" style="display:none;">Remove Captured Image</button>
-        <a id="downloadLink" style="display:none;" download="captured_image.png">Download Image</a>
+        <button id="audioToggleButton">Test Mic</button><br><br>
+        <audio id="audioElement" controls style="display:none;"></audio>
+        <canvas id="volumeCanvas" style="display:none;"></canvas>
+        
 
         
         
@@ -193,7 +193,7 @@ function toggleWebcam() {
 // Function to start the webcam
 function startWebcam() {
     if (navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ video: true })
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
             .then(function (newStream) {
                 stream = newStream;
                 video.srcObject = stream;
@@ -215,43 +215,58 @@ function stopWebcam() {
     }
 }
 
+// Declare audio variable globally
+var audio = document.querySelector("#audioElement");
+
+// Function to toggle audio
+function toggleAudio() {
+    // If the audio is playing, pause it
+    if (!audio.paused) {
+        audio.pause();
+    } else {
+        // If the audio is paused, play it
+        startAudio();
+    }
+}
+
+// Function to start the audio
+function startAudio() {
+    if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(function (audioStream) {
+                // Connect the audio stream to the audio element
+                audio.srcObject = audioStream;
+
+                // Play the audio
+                audio.play();
+            })
+            .catch(function (error) {
+                console.log("Something went wrong with audio!", error);
+            });
+    }
+}
+
+// Function to stop the audio
+function stopAudio() {
+    // Pause the audio and stop the audio stream
+    audio.pause();
+    if (audio.srcObject) {
+        var audioTracks = audio.srcObject.getTracks();
+        audioTracks.forEach(function (track) {
+            track.stop();
+        });
+        audio.srcObject = null;
+    }
+}
+
+// Example: Call toggleAudio function when a button is clicked
+var audioToggleButton = document.getElementById("audioToggleButton");
+audioToggleButton.addEventListener("click", toggleAudio);
+
 // Example: Call toggleWebcam function when a button is clicked
 var webcamToggleButton = document.getElementById("webcamToggleButton");
 webcamToggleButton.addEventListener("click", toggleWebcam);
         
-function captureImage() {
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    canvas.getContext('2d').drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
-
-    // Flip the captured image horizontally
-    canvas.getContext('2d').scale(-1, 1);
-    canvas.getContext('2d').drawImage(video, -video.videoWidth, 0, video.videoWidth, video.videoHeight);
-
-    capturedImage.src = canvas.toDataURL('image/png');
-    capturedImage.style.display = 'block';
-
-    // Set the download attribute with the captured image
-    downloadLink.href = capturedImage.src;
-    downloadLink.style.display = 'block';
-
-    // Show the remove captured image button
-    document.getElementById("removeCapturedBtn").style.display = "block";
-
-    // Hide the capture button
-    document.getElementById("captureBtn").style.display = "none";
-}
-
-    function removeCapturedImage() {
-        // Hide the captured image and download button
-        capturedImage.style.display = 'none';
-        document.getElementById("downloadLink").style.display = 'none';
-
-        // Show the capture button
-        document.getElementById("captureBtn").style.display = "block";
-        // Hide the remove captured image button
-        document.getElementById("removeCapturedBtn").style.display = "none";
-    }
 
     
 

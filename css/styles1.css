@@ -777,25 +777,6 @@ body.dark-mode a {
   background-color: #2980b9;
 }
 
-#container {
-  margin: 0px auto;
-  width: 500px;
-  height: 375px;
-  margin-top:5%;
-  border: 10px #333 solid;
-  transform: scaleX(-1);
-}
-
-#videoElement {
-  width: 500px;
-  height: 375px;
-  background-color: #666;
-  
-}
-
-#buttonContainer {
-  text-align: center;
-}
 
 #captureBtn,
 #downloadLink {
