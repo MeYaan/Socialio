@@ -1,6 +1,6 @@
 About:
 -
-Title "Socialio". A social media and portfolio website in 1
+Title "Socialio". A social media project.
 
 v1.0:
 -
